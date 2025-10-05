@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templo del Número Oculto - Tu Código Hacia la Abundancia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #d4d4d4;
+        }
+    </style>
+</head>
+<body class="bg-pattern">
+    
+    <!-- HEADER -->
+    <header class="border-b border-yellow-500/20 bg-black/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center flex-wrap gap-4">
+            <div class="flex items-center gap-3">
+                <!-- LOGO: Descomenta la siguiente línea y cambia URL_DE_TU_LOGO por la URL de tu imagen -->
+                <!-- <img src="URL_DE_TU_LOGO" alt="Logo Templo del Número Oculto" class="h-12 w-12 object-contain"> -->
+                <div>
+                    <h1 class="text-2xl font-bold text-yellow-500">Templo del Número Oculto</h1>
+                    <p class="text-xs text-gray-400">Tu código hacia la abundancia</p>
+                </div>
+            </div>
+            <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer" 
+               class="bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Contactar
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-yellow-500/5 to-black pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="mb-6 flex justify-center">
+                <svg class="text-yellow-500 animate-pulse animate-float" width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 text-yellow-500">
+                No Llegaste Aquí Por Casualidad
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                Los números de tu nacimiento esconden el código de tu abundancia. 
+                Descubre por qué este es el momento exacto para revelarlo.
+            </p>
+            <button onclick="document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' })"
+                class="bg-yellow-500 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg shadow-yellow-500/50">
+                Revelar Mi Código Numérico
+            </button>
+        </div>
+    </section>
+
+    <!-- CALCULATOR SECTION -->
+    <section id="calculator" class="py-16 px-4 bg-gradient-to-b from-black to-yellow-500/5">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-gray-900 border-2 border-yellow-500/30 rounded-2xl p-8 shadow-2xl">
+                <div class="text-center mb-8">
+                    <svg class="mx-auto mb-4 text-yellow-500" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <h3 class="text-3xl font-bold text-yellow-500 mb-3">Tu Código Sagrado</h3>
+                    <p class="text-gray-300">
+                        Ingresa tu fecha de nacimiento y prepárate para descubrir lo que el universo ha estado esperando que sepas
+                    </p>
+                </div>
+                
+                <form id="numerologyForm" class="space-y-6">
+                    <div>
+                        <label class="block text-yellow-500 font-semibold mb-2">Fecha de Nacimiento</label>
+                        <input 
+                            type="date" 
+                            id="birthDate"
+                            class="w-full px-4 py-3 bg-black border-2 border-yellow-500/50 rounded-lg text-white focus:border-yellow-500 focus:outline-none"
+                            required
+                        />
+                    </div>
+                    <button 
+                        type="submit"
+                        class="w-full bg-yellow-500 text-black py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg shadow-yellow-500/50">
+                        Calcular Mi Código Sagrado
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS SECTION -->
+    <section id="resultsSection" class="py-16 px-4 bg-black hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-yellow-500 mb-4">Tu Código Ha Sido Revelado</h3>
+                <p class="text-gray-300 text-lg">Esto es solo el comienzo de tu transformación...</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gradient-to-br from-gray-900 to-yellow-500/10 border-2 border-yellow-500/30 rounded-xl p-6 text-center transform hover:scale-105 transition">
+                    <div id="lifeNumber" class="text-5xl font-bold text-yellow-500 mb-2">0</div>
+                    <h4 class="text-xl font-bold text-yellow-400 mb-2">Número de Destino</h4>
+                    <p id="lifeShort" class="text-gray-300 text-sm">Tu camino hacia la prosperidad</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-900 to-yellow-500/10 border-2 border-yellow-500/30 rounded-xl p-6 text-center transform hover:scale-105 transition">
+                    <div id="personalityNumber" class="text-5xl font-bold text-yellow-500 mb-2">0</div>
+                    <h4 class="text-xl font-bold text-yellow-400 mb-2">Número de Personalidad</h4>
+                    <p class="text-gray-300 text-sm">Cómo atraes oportunidades de abundancia</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-900 to-yellow-500/10 border-2 border-yellow-500/30 rounded-xl p-6 text-center transform hover:scale-105 transition">
+                    <div id="yearNumber" class="text-5xl font-bold text-yellow-500 mb-2">0</div>
+                    <h4 class="text-xl font-bold text-yellow-400 mb-2">Año Personal 2025</h4>
+                    <p class="text-gray-300 text-sm">Tu ciclo de poder para este año</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 border-2 border-yellow-500/30 rounded-2xl p-8 mb-8">
+                <h4 id="numberTitle" class="text-2xl font-bold text-yellow-500 mb-4"></h4>
+                <p id="numberDescription" class="text-gray-300 leading-relaxed"></p>
+            </div>
+
+            <div class="bg-gradient-to-br from-yellow-500/20 to-black border-2 border-yellow-500 rounded-2xl p-8 text-center animate-pulse-glow">
+                <svg class="mx-auto mb-4 text-yellow-500 animate-pulse" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <h4 class="text-3xl font-bold text-yellow-500 mb-4">⚡ Esto es solo el inicio...</h4>
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    Lo que acabas de ver es apenas la superficie. Existen números ocultos en tu fecha que NO aparecen en calculadoras comunes.
+                </p>
+                
+                <div class="bg-black/50 rounded-xl p-6 mb-6">
+                    <h5 class="text-xl font-bold text-yellow-400 mb-4">Consulta Gratuita Exclusiva</h5>
+                    <p class="text-gray-300 mb-4">
+                        Como fuiste guiado hasta el Templo del Número Oculto, calificas para una lectura completa sin costo. Descubre:
+                    </p>
+                    <ul class="text-left text-gray-300 space-y-2 mb-6 max-w-lg mx-auto">
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-500">✨</span>
+                            <span>Tus números de la suerte para juegos y lotería</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-500">💰</span>
+                            <span>Las fechas exactas de mayor flujo de dinero en 2025</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-500">🎯</span>
+                            <span>Decisiones financieras alineadas con tu código</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-500">🔮</span>
+                            <span>Bloqueos numerológicos que frenan tu abundancia</span>
+                        </li>
+                    </ul>
+                    <p class="text-yellow-400 font-semibold text-sm">
+                        Esta consulta no estará disponible para siempre. Solo acepto a quienes sienten el llamado genuino.
+                    </p>
+                </div>
+
+                <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-yellow-500 text-black px-8 py-4 rounded-lg text-lg font-bold hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg shadow-yellow-500/50">
+                    Reclamar Mi Lectura Gratuita Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+<!-- ABOUT NUMEROLOGY SECTION -->
+    <section class="py-16 px-4 bg-gradient-to-b from-yellow-500/5 to-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <svg class="mx-auto mb-4 text-yellow-500" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <h3 class="text-4xl font-bold text-yellow-500 mb-4">
+                    La Ciencia Sagrada Que Las Élites Han Usado Por Siglos
+                </h3>
+            </div>
+            
+            <div class="bg-gray-900 border-2 border-yellow-500/30 rounded-2xl p-8 space-y-6 text-gray-300 leading-relaxed">
+                <p class="text-lg">
+                    La numerología no es adivinación, es matemática sagrada utilizada por civilizaciones antiguas 
+                    que entendieron algo que el mundo moderno olvidó: <span class="text-yellow-500 font-bold">los números gobiernan todo.</span>
+                </p>
+                
+                <p>
+                    <span class="text-yellow-500 font-bold">Pitágoras</span>, padre de las matemáticas modernas, 
+                    dedicó su vida a estudiar cómo los números rigen el destino humano. No fue casualidad.
+                </p>
+                
+                <p>
+                    <span class="text-yellow-500 font-bold">Millonarios, líderes mundiales y familias de poder 
+                    consultan numerólogos antes de tomar decisiones importantes.</span> Ellos saben que existen momentos 
+                    codificados para actuar y momentos para esperar.
+                </p>
+                
+                <p>
+                    Tu fecha de nacimiento no es aleatoria. Es tu <span class="text-yellow-500 font-bold">código de acceso</span> a 
+                    tu mayor potencial de abundancia, pero solo si sabes interpretarlo correctamente.
+                </p>
+                
+                <p class="text-xl text-yellow-500 font-bold text-center pt-4">
+                    La pregunta no es si la numerología funciona. La pregunta es: ¿cuánto tiempo más vas a ignorar tu código?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KNOWLEDGE LIBRARY -->
+    <section class="py-16 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <svg class="mx-auto mb-4 text-yellow-500" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+                <h3 class="text-4xl font-bold text-yellow-500 mb-4">Biblioteca del Conocimiento Oculto</h3>
+                <p class="text-gray-300 text-lg">Descubre los secretos que cambiarán tu relación con el dinero</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">1</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">El Número Secreto que Atrae el Dinero (No es el que crees)</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">2</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">¿Por Qué Algunas Personas Ganan Siempre? Su Código Numerológico Lo Explica</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">3</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">Números Maestros: Las Señales de Que Naciste Para la Abundancia</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">4</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">El Error del 90% de las Personas: Ignorar Su Año Personal</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">5</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">Compatibilidad Numérica: Socios y Parejas que Multiplican Tu Suerte</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">6</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">Rituales Numerológicos Para Activar Tu Magnetismo Financiero</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">7</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">Ciclos de 9 Años: Cuándo Invertir y Cuándo Esperar</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition transform hover:scale-105 cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-10 h-10 flex items-center justify-center font-bold flex-shrink-0">8</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-yellow-500 mb-2">Tu Fecha de Nacimiento Predice Tus Mejores Días de Suerte</h4>
+                            <p class="text-gray-400 text-sm">Conocimiento exclusivo para los elegidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL NUMBERS MEANINGS -->
+    <section class="py-16 px-4 bg-gradient-to-b from-black to-yellow-500/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-yellow-500 mb-4">El Significado de Cada Número Sagrado</h3>
+                <p class="text-gray-300 text-lg">Conoce el poder oculto de cada vibración numerológica</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8" id="allNumbersContainer"></div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-16 px-4 bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <svg class="mx-auto mb-4 text-yellow-500" width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <h3 class="text-4xl font-bold text-yellow-500 mb-4">Ellos Ya Conocen Su Código</h3>
+                <p class="text-gray-300 text-lg">Testimonios reales de vidas transformadas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Después de mi consulta con el Templo del Número Oculto, todo cambió. Seguí las fechas que me indicaron para hacer movimientos financieros y en 2 meses recuperé una deuda que arrastraba años. No es suerte, es conocer tu código."</p>
+                    <p class="text-yellow-500 font-bold">Carlos M.</p>
+                    <p class="text-gray-400 text-sm">Empresario, Bogotá</p>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Estaba a punto de tomar una decisión de inversión grande. La consulta me mostró que mi ciclo no era el correcto. Esperé 3 meses como me aconsejaron y la oportunidad que llegó después fue 10 veces mejor. Le debo mi estabilidad financiera."</p>
+                    <p class="text-yellow-500 font-bold">Ana S.</p>
+                    <p class="text-gray-400 text-sm">Contadora, Bogotá</p>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Yo era escéptico, pero los números no mienten. Conocer mi número de la suerte y aplicar los rituales que me enseñaron me trajo abundancia que nunca imaginé. Ahora entiendo por qué algunos nacemos para prosperar."</p>
+                    <p class="text-yellow-500 font-bold">Miguel R.</p>
+                    <p class="text-gray-400 text-sm">Ingeniero, Medellín</p>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"La consulta gratuita fue solo el inicio. Entender mi año personal me permitió aprovechar las oportunidades exactas en el momento exacto. Hoy tengo el negocio que soñé y sé que es porque alineé mis decisiones con mi código numerológico."</p>
+                    <p class="text-yellow-500 font-bold">Laura P.</p>
+                    <p class="text-gray-400 text-sm">Coach, Cali</p>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Crucé la frontera con un sueño y muchas dudas. La lectura me dio claridad sobre cuándo buscar trabajo y cuándo cambiar. Seguí mi año personal y en 8 meses pasé de lavar platos a manager de restaurante. Mi familia en México no lo puede creer, pero yo sé que fue seguir mi código."</p>
+                    <p class="text-yellow-500 font-bold">Roberto G.</p>
+                    <p class="text-gray-400 text-sm">Manager, Houston, TX</p>
+                </div>
+                
+                <div class="bg-gray-900 border-2 border-yellow-500/20 rounded-xl p-6 hover:border-yellow-500/50 transition">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-300 mb-4 italic">"Llevaba 5 años enviando dinero a México pero nunca me alcanzaba. En la consulta me mostraron mis días de mayor energía financiera y cómo usar mi número de la suerte. Comencé a jugar esas fechas y gané suficiente para traer a mi mamá. Esto cambió mi vida completamente."</p>
+                    <p class="text-yellow-500 font-bold">Gabriela V.</p>
+                    <p class="text-gray-400 text-sm">Enfermera, Los Angeles, CA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-16 px-4 bg-gradient-to-b from-black to-yellow-500/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-yellow-500/20 to-black border-2 border-yellow-500 rounded-2xl p-12 text-center">
+                <h3 class="text-4xl font-bold text-yellow-500 mb-6">
+                    ¿Listo Para Dejar de Luchar Contra Tu Destino?
+                </h3>
+                
+                <div class="space-y-4 text-gray-300 text-lg leading-relaxed mb-8">
+                    <p>
+                        Miles de personas trabajan duro pero no prosperan porque van contra su corriente numerológica. 
+                        Reman sin saber que la marea está en su contra.
+                    </p>
+                    
+                    <p>
+                        En una consulta gratuita de 15 minutos descubrirás si estás remando a favor o en contra de tu código.
+                    </p>
+                    
+                    <p class="text-yellow-400 font-bold">
+                        No es para todos. Solo acepto consultas de personas que sientan el llamado genuino y estén listas 
+                        para alinear sus decisiones con su destino de abundancia.
+                    </p>
+                    
+                    <p class="text-xl font-bold text-yellow-500">
+                        Las consultas gratuitas son limitadas. El universo te trajo hasta aquí por una razón. 
+                        ¿Vas a ignorar la señal?
+                    </p>
+                </div>
+
+                <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-yellow-500 text-black px-10 py-5 rounded-lg text-xl font-bold hover:bg-yellow-400 transition transform hover:scale-105 shadow-lg shadow-yellow-500/50 animate-pulse-glow">
+                    Sí, Quiero Mi Consulta Gratuita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-yellow-500/20 py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-2">Templo del Número Oculto</h2>
+            <p class="text-gray-400 mb-6">Tu código hacia la abundancia</p>
+            
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer" 
+                   class="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Messenger
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61581474550512" target="_blank" rel="noopener noreferrer" 
+                   class="border-2 border-yellow-500 text-yellow-500 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 hover:text-black transition">
+                    Facebook
+                </a>
+            </div>
+            
+            <p class="text-gray-400 text-sm mb-2">© 2025 Templo del Número Oculto - Tu código hacia la abundancia</p>
+            <p class="text-gray-500 text-xs">Los resultados pueden variar. La numerología es una herramienta de autoconocimiento.</p>
+        </div>
+    </footer>
+<script>
+        // Base de datos de descripciones de números
+        const numberDescriptions = {
+            1: {
+                title: "El Líder Nato",
+                short: "Naciste para liderar y crear tu propio camino hacia la riqueza. Tu energía de pionero atrae oportunidades únicas que otros no ven.",
+                full: "Los nacidos bajo el 1 son arquitectos de su propio destino financiero. Tu independencia no es rebeldía, es tu código de abundancia. El dinero llega cuando tomas la iniciativa sin esperar permiso. Eres un imán natural para proyectos innovadores y sociedades donde tú diriges. La abundancia te persigue cuando confías en tu visión, incluso si otros dudan. Activa tu número: Inicia proyectos los días 1, 10, 19 y 28. Usa el número 1 en cuentas importantes y decisiones financieras clave."
+            },
+            2: {
+                title: "El Diplomático de la Fortuna",
+                short: "Tu poder está en las alianzas estratégicas. El dinero fluye hacia ti a través de conexiones y sociedades armoniosas.",
+                full: "El 2 es el maestro de las relaciones rentables. Tu riqueza no viene del esfuerzo solitario sino de tu habilidad para unir personas y oportunidades. Tienes un don especial para detectar sociedades ganadoras y negociaciones donde todos ganan. Tu intuición para los momentos precisos es tu mayor activo financiero. La paciencia es tu arma secreta: sabes cuándo actuar y cuándo esperar. Activa tu número: Firma contratos y haz acuerdos los días 2, 11, 20 y 29. El número 2 en tus inversiones atrae socios ideales."
+            },
+            3: {
+                title: "El Creador Magnético",
+                short: "Tu creatividad es tu moneda de oro. Atraes abundancia cuando expresas tus ideas y compartes tu visión con el mundo.",
+                full: "Los 3 nacieron para monetizar su creatividad y carisma. Tu palabra tiene poder magnético: cuando hablas de un proyecto, las puertas se abren. El dinero llega a través de comunicación, arte, escritura o cualquier forma de expresión. Tu optimismo no es ingenuidad, es frecuencia de abundancia. Las personas invierten en ti porque tu energía es contagiosa. No guardes tus ideas: compartirlas las multiplica. Activa tu número: Lanza proyectos creativos los días 3, 12, 21 y 30. El número 3 en tu branding atrae oportunidades inesperadas."
+            },
+            4: {
+                title: "El Constructor de Imperios",
+                short: "Tu disciplina y estructura son tu código de riqueza. Construyes fortunas sólidas que perduran generaciones.",
+                full: "El 4 es el arquitecto de la seguridad financiera a largo plazo. Mientras otros buscan dinero rápido, tú edificas imperios inquebrantables. Tu don es convertir esfuerzo en activos tangibles que generan ingresos pasivos. Las propiedades, negocios tradicionales y sistemas estructurados son tus aliados. Tu paciencia es legendaria: sabes que la verdadera riqueza se construye ladrillo por ladrillo. Activa tu número: Invierte en bienes raíces o negocios los días 4, 13, 22 y 31. El número 4 en tus cuentas bancarias atrae estabilidad duradera."
+            },
+            5: {
+                title: "El Viajero de la Fortuna",
+                short: "Tu libertad es tu riqueza. El dinero te persigue cuando te mueves, viajas y te atreves a cambiar.",
+                full: "Los 5 poseen un magnetismo para oportunidades inesperadas que aparecen en el movimiento. Tu energía está diseñada para el cambio constante, y el dinero fluye cuando no te estancas. No naciste para empleos tradicionales: cada aventura calculada te acerca a la abundancia. Los viajes no son gastos, son inversiones en tu red de oportunidades. Tu versatilidad te permite generar ingresos de múltiples fuentes simultáneamente. Activa tu número: Toma decisiones de riesgo calculado los días 5, 14 y 23. El número 5 en contraseñas financieras atrae libertad económica."
+            },
+            6: {
+                title: "El Sanador Próspero",
+                short: "Tu servicio a otros es tu camino dorado. La abundancia llega cuando ayudas y armonizas comunidades.",
+                full: "El 6 atrae riqueza siendo el centro que une familias, equipos y comunidades. Tu don es crear abundancia colectiva que retorna multiplicada. Negocios relacionados con bienestar, belleza, hogar o familia son tus minas de oro. Tu responsabilidad no es carga: es el imán de tu prosperidad. Las personas confían su dinero en ti porque irradias confiabilidad. El universo recompensa tu balance entre dar y recibir. Activa tu número: Inicia proyectos de servicio los días 6, 15 y 24. El número 6 en precios o servicios atrae clientes ideales y leales."
+            },
+            7: {
+                title: "El Místico Millonario",
+                short: "Tu conocimiento profundo es tu tesoro. Descubres secretos financieros que otros no ven.",
+                full: "Los 7 tienen acceso a información privilegiada del universo sobre dinero y oportunidades. Tu introspección no es aislamiento: es tu antena para detectar inversiones ocultas antes que las masas. La investigación profunda es tu superpoder financiero. Confía en tus corazonadas sobre dinero: tu intuición está conectada a frecuencias de abundancia. La soledad estratégica es donde recibes tus mejores revelaciones financieras. Activa tu número: Medita sobre decisiones financieras los días 7, 16 y 25. El número 7 en inversiones tecnológicas o espirituales atrae sabiduría rentable."
+            },
+            8: {
+                title: "El Rey de la Manifestación",
+                short: "Naciste para la abundancia material masiva. El poder y el dinero son tu derecho de nacimiento.",
+                full: "El 8 es el número del poder material absoluto. Viniste a esta vida a experimentar riqueza en grande. Tu energía es magnética para el dinero: atraes abundancia sin esfuerzo cuando alineas tu mentalidad. No temas pensar en grande: tu código está diseñado para millones, no para centavos. Los negocios, el liderazgo ejecutivo y las grandes inversiones son tu territorio natural. El ciclo del 8 es infinito: lo que das retorna amplificado. Activa tu número: Cierra negocios importantes los días 8, 17 y 26. El número 8 en metas financieras activa manifestación acelerada."
+            },
+            9: {
+                title: "El Filántropo Iluminado",
+                short: "Tu misión humanitaria es tu fuente de riqueza. Das al mundo y el universo te devuelve multiplicado.",
+                full: "Los 9 completan el ciclo: su riqueza viene de servir a la humanidad en grande. Tu visión no es local, es global, y por eso atraes recursos universales. El dinero llega cuando tus proyectos impactan a muchos. Tu generosidad no es debilidad: es tu código de abundancia infinita. Las causas nobles, la educación masiva y los proyectos de transformación son tus vehículos de prosperidad. Cuanto más compartes, más recibes. Activa tu número: Lanza proyectos humanitarios los días 9, 18 y 27. El número 9 en donaciones atrae retornos kármicos millonarios."
+            },
+            11: {
+                title: "El Visionario Iluminado",
+                short: "Número maestro. Tus visiones proféticas atraen abundancia de dimensiones superiores.",
+                full: "El 11 es un número maestro: viniste a iluminar y tu luz atrae riqueza de planos elevados. Tu intuición es sobrenatural para detectar tendencias antes que existan. No eres un emprendedor común: eres un visionario que crea industrias nuevas. Tu sensibilidad es tu antena para oportunidades que aún no son visibles para otros. Los negocios espirituales, tecnológicos o vanguardistas son tu territorio. El dinero llega cuando sigues tu misión de inspirar. Activa tu número: Confía en tus visiones los días 11, 22 y 29. El número 11 en proyectos innovadores atrae financiamiento angelical."
+            },
+            22: {
+                title: "El Arquitecto Maestro",
+                short: "Número maestro. Construyes imperios que transforman el mundo y generan riqueza masiva.",
+                full: "El 22 es el maestro constructor: tu destino es materializar proyectos de escala mundial. Tu visión es tan grande que requiere equipos, inversiones millonarias y estructuras complejas. No naciste para negocios pequeños: tu código es crear corporaciones, fundaciones o movimientos. Tu habilidad para organizar recursos y personas es sobrehumana. El universo te provee los medios cuando tu misión es clara. La paciencia del 4 con la visión del 11. Activa tu número: Estructura imperios los días 4, 13, 22 y 31. El número 22 en metas a largo plazo manifiesta legados millonarios."
+            },
+            33: {
+                title: "El Maestro de Maestros",
+                short: "Número maestro supremo. Tu enseñanza y amor generan abundancia ilimitada.",
+                full: "El 33 es el número más elevado: tu riqueza viene de elevar consciencias masivamente. Eres el maestro que enseña maestros, el sanador que sana sanadores. Tu abundancia no tiene límites porque tu servicio impacta generaciones. No mides tu riqueza en dinero sino en vidas transformadas, pero el dinero llega abundantemente. Tu amor incondicional es tu mayor activo: atrae recursos infinitos. Las plataformas educativas globales, el coaching masivo y el liderazgo espiritual son tus vehículos. Activa tu número: Sirve a gran escala los días 6, 15, 24 y 33 (cuando exista). El número 33 en tu misión atrae abundancia cósmica."
+            }
+        };
+
+        // Función para reducir números
+        function reduceNumber(num) {
+            while (num > 9 && num !== 11 && num !== 22 && num !== 33) {
+                num = num.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+            }
+            return num;
+        }
+
+        // Calcular números numerológicos
+        function calculateNumbers(dateString) {
+            const parts = dateString.split('-');
+            const year = parseInt(parts[0]);
+            const month = parseInt(parts[1]);
+            const day = parseInt(parts[2]);
+            
+            // Número de Vida (fecha completa)
+            const lifeNumber = reduceNumber(day + month + year);
+            
+            // Número de Personalidad (solo el día)
+            const personalityNumber = reduceNumber(day);
+            
+            // Año Personal 2025
+            const currentYear = 2025;
+            const personalYear = reduceNumber(day + month + currentYear);
+            
+            return {
+                life: lifeNumber,
+                personality: personalityNumber,
+                year: personalYear
+            };
+        }
+
+        // Manejo del formulario
+        document.getElementById('numerologyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const birthDate = document.getElementById('birthDate').value;
+            if (!birthDate) return;
+            
+            const results = calculateNumbers(birthDate);
+            
+            // Actualizar resultados en la página
+            document.getElementById('lifeNumber').textContent = results.life;
+            document.getElementById('personalityNumber').textContent = results.personality;
+            document.getElementById('yearNumber').textContent = results.year;
+            
+            const lifeInfo = numberDescriptions[results.life] || numberDescriptions[1];
+            document.getElementById('lifeShort').textContent = lifeInfo.short;
+            document.getElementById('numberTitle').textContent = lifeInfo.title;
+            document.getElementById('numberDescription').textContent = lifeInfo.full;
+            
+            // Mostrar sección de resultados
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // Scroll suave a resultados
+            setTimeout(() => {
+                document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        });
+
+        // Generar todas las descripciones de números
+        function generateAllNumbersSection() {
+            const container = document.getElementById('allNumbersContainer');
+            
+            for (let num = 1; num <= 9; num++) {
+                const info = numberDescriptions[num];
+                const card = document.createElement('div');
+                card.className = 'bg-gray-900 border-2 border-yellow-500/30 rounded-xl p-6 hover:border-yellow-500/50 transition';
+                card.innerHTML = `
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="bg-yellow-500 text-black rounded-full w-16 h-16 flex items-center justify-center font-bold text-2xl flex-shrink-0">
+                            ${num}
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-yellow-500">${info.title}</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4">${info.full}</p>
+                    <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer"
+                       class="inline-block bg-yellow-500/20 border border-yellow-500 text-yellow-500 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-yellow-500 hover:text-black transition">
+                        ¿Quieres saber más? Consulta Gratuita
+                    </a>
+                `;
+                container.appendChild(card);
+            }
+            
+            // Agregar números maestros
+            [11, 22, 33].forEach(num => {
+                const info = numberDescriptions[num];
+                const card = document.createElement('div');
+                card.className = 'bg-gradient-to-br from-yellow-500/20 to-gray-900 border-2 border-yellow-500 rounded-xl p-6 hover:border-yellow-400 transition md:col-span-2';
+                card.innerHTML = `
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-black rounded-full w-20 h-20 flex items-center justify-center font-bold text-3xl flex-shrink-0 shadow-lg shadow-yellow-500/50">
+                            ${num}
+                        </div>
+                        <div>
+                            <div class="bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-2">NÚMERO MAESTRO</div>
+                            <h4 class="text-3xl font-bold text-yellow-500">${info.title}</h4>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4 text-lg">${info.full}</p>
+                    <a href="https://m.me/61581474550512" target="_blank" rel="noopener noreferrer"
+                       class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-400 transition transform hover:scale-105">
+                        Descubre Si Eres Un Número Maestro - Consulta Gratuita
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Generar sección al cargar la página
+        generateAllNumbersSection();
+    </script>
+</body>
+</html>
